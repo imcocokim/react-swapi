@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import NavBar from './components/NavBar/NavBar'
 import AllStarShips from './pages/AllStarships/AllStarships';
+import StarshipDetails from './pages/StarshipDetails/StarshipDetails';
 
 
 
@@ -10,10 +11,10 @@ function App() {
   return (
     <>
       <NavBar />
-      <AllStarShips />
-      {/* <Routes>
-        <Route path='/starship' >
-      </Routes> */}
+      <Routes>
+        <Route path='/' element={<AllStarShips />} />
+        <Route path='/starship' element={<StarshipDetails />} />
+      </Routes>
     </>
   
   );
