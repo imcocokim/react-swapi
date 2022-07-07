@@ -21,7 +21,7 @@ const AllStarShips = () => {
       <>
         <div className='all-starships'>
           {starships.map(starship =>
-            <Link to='/starship' state={{starship}} key={starship.name}>
+            <Link to='/starship' state={{starship}} key={starship.name} className="starship-links">
               <div className='starship-div'>
                 {starship.name}
               </div>

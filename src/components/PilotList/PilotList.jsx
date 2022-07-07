@@ -1,11 +1,13 @@
 import Pilot from "./Pilot";
 
 
-const PilotList = (pilots) => {
+const PilotList = ({pilots}) => {
   return ( 
     <>
       {pilots.map(pilot => 
-        <Pilot pilot={pilot}/>
+        <div key={pilot} className="pilots">
+          <Pilot pilot={pilot}/>
+        </div>
       )}
     </>
   );

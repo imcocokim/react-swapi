@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react'
 
 
-const Pilot = ({props}) => {
+const Pilot = (props) => {
   const [pilot, setPilot] = useState()
 
   useEffect(() =>{

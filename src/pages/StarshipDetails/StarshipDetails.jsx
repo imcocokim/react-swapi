@@ -17,19 +17,19 @@ const StarshipDetails = () => {
   }, [location.state.starship.url])
   
   return (
-    <>
+    <div className="">
       {starshipDetails.name 
         ? <>
             <p>NAME: {starshipDetails.name} </p>
             <p>MODEL: {starshipDetails.model} </p>
             {starshipDetails.pilots.length 
-              ? <PilotList />
+              ? <PilotList pilots={starshipDetails.pilots}/>
               : <p>There are no pilots.</p>
             } <Link to='/'> RETURN</Link>
           </>
         : <p>LOADING STARSHIP DETAILS...</p>
       }
-    </>
+    </div>
   );
 }
 
