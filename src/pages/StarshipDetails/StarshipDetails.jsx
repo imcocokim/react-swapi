@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getDetails } from "../../services/sw-api";
+import { Link } from "react-router-dom"
+import PilotList from "../../components/PilotList/PilotList";
 
 const StarshipDetails = () => {
   const [starshipDetails, setStarshipDetails] = useState({})
   const location = useLocation()
-  console.log(location.state.starship.url)
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -17,7 +18,26 @@ const StarshipDetails = () => {
   
   return (
     <>
-      <h1>{starshipDetails.name} Details</h1>
+      {starshipDetails.name ? 
+        <>
+          <p>NAME: {starshipDetails.name} </p>
+          <p>MODEL: {starshipDetails.model} </p>
+          {starshipDetails.pilots.length ?
+            <>
+              <PilotList />
+            </>
+            :
+            <>
+              <p>There are no pilots.</p>
+            </>
+          }
+          <Link to='/'> RETURN</Link>
+        </>
+        :
+        <>
+          <p>LOADING STARSHIP DETAILS...</p>
+        </>
+      }
     </>
   );
 }
