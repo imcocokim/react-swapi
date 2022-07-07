@@ -18,25 +18,16 @@ const StarshipDetails = () => {
   
   return (
     <>
-      {starshipDetails.name ? 
-        <>
-          <p>NAME: {starshipDetails.name} </p>
-          <p>MODEL: {starshipDetails.model} </p>
-          {starshipDetails.pilots.length ?
-            <>
-              <PilotList />
-            </>
-            :
-            <>
-              <p>There are no pilots.</p>
-            </>
-          }
-          <Link to='/'> RETURN</Link>
-        </>
-        :
-        <>
-          <p>LOADING STARSHIP DETAILS...</p>
-        </>
+      {starshipDetails.name 
+        ? <>
+            <p>NAME: {starshipDetails.name} </p>
+            <p>MODEL: {starshipDetails.model} </p>
+            {starshipDetails.pilots.length 
+              ? <PilotList />
+              : <p>There are no pilots.</p>
+            } <Link to='/'> RETURN</Link>
+          </>
+        : <p>LOADING STARSHIP DETAILS...</p>
       }
     </>
   );
